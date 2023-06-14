@@ -42,3 +42,9 @@ SELECT * FROM employees;
 
 ALTER TABLE employees
 ADD COLUMN address VARCHAR(100);
+
+--Delete altering the table
+--To drop a column from an existing table in SQL, you can use the ALTER TABLE statement with the DROP COLUMN clause.
+
+ALTER TABLE employees
+DROP COLUMN address;
