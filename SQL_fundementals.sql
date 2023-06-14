@@ -48,3 +48,9 @@ ADD COLUMN address VARCHAR(100);
 
 ALTER TABLE employees
 DROP COLUMN address;
+
+--Rename the column
+--To rename a column in an existing table in SQL, you can use the ALTER TABLE statement with the RENAME COLUMN clause.
+
+ALTER TABLE employees
+RENAME COLUMN old_column_name TO new_column_name;
