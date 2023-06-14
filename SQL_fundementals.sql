@@ -36,3 +36,9 @@ INSERT INTO employees (id, name, age, email) VALUES
 --To display the contents of a table in SQL, you can use the SELECT statement.
 
 SELECT * FROM employees;
+
+--Alter the table
+--To create a new column in an existing table in SQL, you can use the ALTER TABLE statement.
+
+ALTER TABLE employees
+ADD COLUMN address VARCHAR(100);
