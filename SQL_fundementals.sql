@@ -54,3 +54,10 @@ DROP COLUMN address;
 
 ALTER TABLE employees
 RENAME COLUMN old_column_name TO new_column_name;
+
+--Update data in the table
+--To update existing data in a table, you can use the UPDATE statement.
+
+UPDATE employees
+SET age = 30
+WHERE id = 2;
