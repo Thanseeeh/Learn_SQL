@@ -63,3 +63,32 @@ SELECT LTRIM(department) AS trimmed_department FROM Worker;
 
 --Q7: Write an SQL query to print the FIRST_NAME from the Worker table after replacing ‘a’ with ‘A’.
 SELECT REPLACE(first_name, 'a', 'A') AS modified_first_name FROM Worker;
+
+--Q8: Write an SQL query to print the FIRST_NAME and LAST_NAME from the Worker table into a single column COMPLETE_NAME. A space char should separate them.
+SELECT CONCAT(first_name, ' ', last_name) AS complete_name FROM Worker;
+
+--Q9: Write an SQL query to print all Worker details from the Worker table order by FIRST_NAME Ascending.
+SELECT * FROM Worker ORDER BY first_name ASC;
+
+--Q10: Write an SQL query to print all Worker details from the Worker table order by FIRST_NAME Ascending and DEPARTMENT Descending.
+SELECT * FROM Worker ORDER BY first_name ASC, department DESC;
+
+--Q11: Write an SQL query to print details of the Workers whose FIRST_NAME contains ‘a’.
+SELECT * FROM Worker WHERE first_name LIKE '%a%';
+
+--Q12: Write an SQL query to fetch worker names with salaries >= 50000 and <= 100000.
+SELECT first_name FROM Worker WHERE salary >= 50000 AND salary <= 100000;
+
+--Q13: Write an SQL query to fetch the first 50% records from a table.
+SELECT * FROM Worker LIMIT (SELECT COUNT(*) / 2 FROM Worker);
+
+--Q14: Write an SQL query to show the last record from a table.
+SELECT * FROM Worker ORDER BY worker_id DESC LIMIT 1;
+
+--Q15: Swapping the Values of first name and last name Columns in a worker table
+UPDATE Worker
+SET
+    first_name = (SELECT @temp := first_name),
+    first_name = last_name,
+    last_name = @temp;
+
