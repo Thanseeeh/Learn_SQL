@@ -48,3 +48,18 @@ SELECT first_name AS <WORKER_NAME> FROM Worker;
 
 --Q2:  Write an SQL query to fetch “FIRST_NAME” from the Worker table in upper case.
 SELECT UPPER(first_name) FROM Worker;
+
+--Q3: Write an SQL query to fetch unique values of DEPARTMENT from Worker table.
+SELECT DISTINCT department FROM Worker;
+
+--Q4: Write an SQL query to find the position of the alphabet (‘a’) in the first name column ‘Amitabh’ from the Worker table.
+SELECT INSTR(first_name, 'a') FROM Worker WHERE first_name = 'Amitabh';
+
+--Q5: Write an SQL query to print the FIRST_NAME from the Worker table after removing white spaces from the right side.
+SELECT RTRIM(first_name) AS trimmed_first_name FROM Worker;
+
+--Q6: Write an SQL query to print the DEPARTMENT from the Worker table after removing white spaces from the left side.
+SELECT LTRIM(department) AS trimmed_department FROM Worker;
+
+--Q7: Write an SQL query to print the FIRST_NAME from the Worker table after replacing ‘a’ with ‘A’.
+SELECT REPLACE(first_name, 'a', 'A') AS modified_first_name FROM Worker;
