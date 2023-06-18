@@ -40,3 +40,41 @@ VALUES
 
 
 
+--Q1: Write a query to find the third highest  salary from the EmployeeInfo table ?
+SELECT salary FROM employee_info ORDER BY salary DESC LIMIT 1 OFFSET 2;
+
+--Q2: Write a query to find the third highest  salary from the table without using TOP/LIMIT keyword ?
+SELECT salary
+FROM employee_info
+WHERE salary < (
+  SELECT MAX(salary)
+  FROM employee_info
+)
+ORDER BY salary DESC
+LIMIT 1;
+
+--Q3: Write a query to find the duplicate row in  a table ?
+SELECT emp_id, emp_fname, emp_lname, department, salary, COUNT(*) as count
+FROM employee_info
+GROUP BY emp_id, emp_fname, emp_lname, department, salary
+HAVING COUNT(*) > 1;
+
+--Q4: Write  a query to calculate the even and odd records from a table ?
+SELECT * FROM employee_info WHERE emp_id % 2 = 0;
+
+--Q5: Write a query to display the first and last record from the EmployeeInfo table ?
+(SELECT *
+FROM employee_info
+ORDER BY emp_id
+LIMIT 1)
+UNION ALL
+(SELECT *
+FROM employee_info
+ORDER BY emp_id DESC
+LIMIT 1);
+
+--Q6: How do you copy all rows of a table using query ?
+CREATE TABLE new_employee_info LIKE employee_info;
+
+INSERT INTO new_employee_info
+SELECT * FROM employee_info;
