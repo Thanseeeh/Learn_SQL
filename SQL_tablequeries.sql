@@ -78,3 +78,19 @@ CREATE TABLE new_employee_info LIKE employee_info;
 
 INSERT INTO new_employee_info
 SELECT * FROM employee_info;
+
+--Q7: Write  a query to retrieve the list of employees working in the same department ?
+SELECT emp_fname, emp_lname
+FROM employee_info
+WHERE department = 'DepartmentName';
+
+--Q8: Write a query to retrieve the last 3 records from the EmployeeInfo table ?
+SELECT *
+FROM employee_info
+ORDER BY emp_id DESC
+LIMIT 3;
+
+--Q9: Write a query to fetch details of an employee whose EmpLname ends with an alphabet ‘A’ and contains five alphabets ?
+SELECT *
+FROM employee_info
+WHERE emp_lname LIKE '____A';
